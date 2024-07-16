@@ -22,7 +22,7 @@ spec:
         volumeMounts:
         - name: nginx-index-volume
           mountPath: /usr/share/nginx/html
-          subPath: index.html
+         # subPath: index.html
       volumes:
       - name: nginx-index-volume
         hostPath:
