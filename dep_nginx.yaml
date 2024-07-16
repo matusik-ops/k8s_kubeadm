@@ -5,7 +5,7 @@ metadata:
   labels:
     app: nginx
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: nginx
@@ -19,3 +19,12 @@ spec:
         image: nginx:latest
         ports:
         - containerPort: 80
+        volumeMounts:
+        - name: nginx-index-volume
+          mountPath: /usr/share/nginx/html
+          subPath: index.html
+      volumes:
+      - name: nginx-index-volume
+        hostPath:
+          path: /data
+          type: DirectoryOrCreate
